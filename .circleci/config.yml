@@ -4,93 +4,28 @@ commands:
   run_tests:
     description: Run test suite
     steps:
-      - common_setup
-      - run: make unit_test
-
-  deploy_to_test_pypi:
-    description: Publish opera package to Python Package Index (PyPI) for testing
-    steps:
-      - common_setup
-      - run: env
-      - run: make build
-      - run: make test_release
-
-  deploy_to_production_pypi:
-    description: Publish opera package to Python Package Index (PyPI)
-    steps:
-      - common_setup
-      - run: make build
-      - run: make release
-
-  common_setup:
-    description: Prepare the repository for work
-    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "b6:94:61:c3:e1:8f:25:e5:43:6d:51:9e:43:c4:16:11"
       - checkout
-      - run: sudo pip install pipenv
-      - run: make init
+      - run: git branch -f tadej-test HEAD
+      - run: git push origin tadej-test
 
 executors:
-  python36:
-    docker:
-      - image: circleci/python:3.6.9
-    environment:
-      PIPENV_VENV_IN_PROJECT: true
   python37:
     docker:
       - image: circleci/python:3.7.4
     environment:
       PIPENV_VENV_IN_PROJECT: true
-  python38:
-    docker:
-      - image: circleci/python:3.8.2
-    environment:
-      PIPENV_VENV_IN_PROJECT: true
 
 jobs:
-  test36:
-    executor: python36
-    steps:
-      - run_tests
-  test37:
+  push_branch:
     executor: python37
     steps:
       - run_tests
-  test38:
-    executor: python38
-    steps:
-      - run_tests
-  pypi_test_deploy:
-    executor: python37
-    steps:
-      - deploy_to_test_pypi
-  pypi_production_deploy:
-    executor: python37
-    steps:
-      - deploy_to_production_pypi
 
 workflows:
   version: 2
   test:
     jobs:
-      - test36
-      - test37
-      - test38
-      - pypi_test_deploy:
-          requires:
-            - test36
-            - test37
-            - test38
-          context: opera-test-pypi
-          filters:
-            branches:
-              only: master
-
-  deploy:
-    jobs:
-      - pypi_production_deploy:
-          context: opera-production-pypi
-          filters:
-            tags:
-              only: /[0-9]+\.[0-9]+\.[0-9]+/
-            branches:
-              ignore: /.*/
+      - push_branch
