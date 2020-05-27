@@ -45,8 +45,6 @@ def deploy(args):
         print("{0} is not a positive number!".format(args.workers))
         return 1
 
-    # TODO(@tadeboro): This should be part of the init command that we do not
-    # have yet.
     if args.template:
         storage.write(args.template.name, "root_file")
         service_template = args.template.name
