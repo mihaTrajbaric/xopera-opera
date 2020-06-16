@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation &mdash; RADON  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RADON
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business-value.html">Business value</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parser">Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RADON</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/documentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documentation">
+<span id="id1"></span><h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<p>This part further explains the structure and usage of xOpera orchestrator.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>xOpera is a TOSCA standard compliant orchestrator that is following the paradigm of having a minimal set of
+features and is currently focusing on Ansible. xOpera is following the traditional UNIX philosophy of having a tool that
+does one thing, and does it right. So, with a minimal set of features xOpera will do just the orchestration, and do it well.
+xOpera is available on GitHub under Apache License 2.0.</p>
+<p>TOSCA stands for the OASIS Topology and Orchestration Specification for Cloud Applications (TOSCA) standard.
+It’s an industry-developed and supported standard, still lively and fast to adopt new technologies, approaches and
+paradigms. It’s however mostly backwards compatible, so staying within the realm of TOSCA is currently a sound and,
+from the longevity perspective, a wise decision.</p>
+<p>Using the TOSCA as the system-defining language for the xOpera means that we have an overarching declarative way that
+manages the actual deployment. The Ansible playbooks are now in the role of the actuators, tools that concretise the
+declared system, its topology and contextualisation of the components and networking.</p>
+<p>This design takes the best of both worlds. TOSCA service template is a system definition, written in proverbial stone,
+while the qualities of the individual Ansible playbooks are now shining. Within the playbooks, we can now entirely focus
+on particular elements of the overall system, such as provisioning virtual machines at the cloud provider, installing
+and configuring a service on a target node, etc. xOpera, in its capacity, takes care of all the untidy inter-playbook
+coordination, state of the deployment and so on.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More about xOpera’s background, its origins and goals can be found here: <a class="reference external" href="https://www.sodalite.eu/content/xopera-agile-orchestrator">xOpera: an agile orchestrator</a></p>
+</div>
+</div>
+<div class="section" id="parser">
+<h2>Parser<a class="headerlink" href="#parser" title="Permalink to this headline">¶</a></h2>
+<p>xOpera orchestrator has its own YAML and TOSCA parser which is shown on the image below <a class="reference internal" href="#opera-parser-structure"><span class="std std-ref">xOpera parser and executor</span></a>.</p>
+<div class="figure align-center" id="id2">
+<span id="opera-parser-structure"></span><a class="reference external image-reference" href="_images/opera_parser_structure.png"><img alt="_images/opera_parser_structure.png" src="_images/opera_parser_structure.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">xOpera parser and executor</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">opera</span></code> is meant to be used in a terminal as a client and it currently allows users to execute the following commands:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 23%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Command options</p></th>
+<th class="head"><p>Purpose and description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>deploy</p></td>
+<td><p>-i, –inputs</p></td>
+<td><p>deploy TOSCA service template</p></td>
+</tr>
+<tr class="row-odd"><td><p>undeploy</p></td>
+<td><p>/</p></td>
+<td><p>un-deploy the deployed solution</p></td>
+</tr>
+<tr class="row-even"><td><p>validate</p></td>
+<td><p>-i, –inputs</p></td>
+<td><p>verify if TOSCA service template is correct</p></td>
+</tr>
+<tr class="row-odd"><td><p>outputs</p></td>
+<td><p>-f, –format</p></td>
+<td><p>retrieve deployment outputs</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you have any problems have a look at existing issues here: <a class="reference external" href="https://github.com/xlab-si/xopera-opera/issues">https://github.com/xlab-si/xopera-opera/issues</a> or open
+a new one yourself.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, RADON team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; RADON  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Documentation" href="documentation.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RADON
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="business-value.html">Business value</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#screencast-video">Screencast video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quickstart-and-hello-world">Quickstart and hello world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openstack-client-setup">OpenStack client setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputs">Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RADON</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examples">
+<span id="id1"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>In this section we show some simple examples of orchestrating with xOpera.</p>
+<div class="section" id="screencast-video">
+<h2>Screencast video<a class="headerlink" href="#screencast-video" title="Permalink to this headline">¶</a></h2>
+<p>This video will help you to get started with xOpera. It also shows an example of deploying a simple image resize
+solution to AWS:</p>
+<div style="text-align: center; margin-bottom: 2em;">
+<iframe width="100%" height="350" src="https://www.youtube.com/embed/cb1efi3wnpw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div></div>
+<div class="section" id="quickstart-and-hello-world">
+<h2>Quickstart and hello world<a class="headerlink" href="#quickstart-and-hello-world" title="Permalink to this headline">¶</a></h2>
+<p>After you installed xOpera into virtual environment you can test if everything is working as expected. We can now try to
+deploy an example <a class="reference external" href="https://github.com/xlab-si/xopera-opera/tree/master/examples/hello">hello-world service</a> that is
+accessible on GitHub.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(.venv) $ git clone git@github.com:xlab-si/xopera-opera.git
+(.venv) $ cd examples/hello
+(.venv) $ opera deploy service.yaml
+</pre></div>
+</div>
+<p>If nothing went wrong, new empty file has been created at <code class="docutils literal notranslate"><span class="pre">/tmp/playing-opera/hello/hello.txt</span></code>.</p>
+<p>To delete the created directory, we can undeploy our stuff by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(.venv) $ opera undeploy
+</pre></div>
+</div>
+<p>If you want to try out one fast and easy xOpera example you can copy the hello world service template below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">tosca_definitions_version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tosca_simple_yaml_1_3</span>
+
+<span class="nt">node_types</span><span class="p">:</span>
+  <span class="nt">hello_type</span><span class="p">:</span>
+    <span class="nt">derived_from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+    <span class="nt">interfaces</span><span class="p">:</span>
+      <span class="nt">Standard</span><span class="p">:</span>
+        <span class="nt">inputs</span><span class="p">:</span>
+          <span class="nt">content</span><span class="p">:</span>
+            <span class="nt">default</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> get_input</span><span class="p">:</span> <span class="nv">content</span> <span class="p p-Indicator">}</span>
+            <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+        <span class="nt">operations</span><span class="p">:</span>
+          <span class="nt">create</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">playbooks/create.yml</span>
+          <span class="nt">delete</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">playbooks/delete.yml</span>
+
+<span class="nt">topology_template</span><span class="p">:</span>
+  <span class="nt">inputs</span><span class="p">:</span>
+    <span class="nt">content</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class="nt">default</span><span class="p">:</span> <span class="s">&quot;Hello</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">Ansible</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">xOpera!\n&quot;</span>
+
+  <span class="nt">node_templates</span><span class="p">:</span>
+    <span class="nt">my-workstation</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tosca.nodes.Compute</span>
+      <span class="nt">attributes</span><span class="p">:</span>
+        <span class="nt">private_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+        <span class="nt">public_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+
+    <span class="nt">hello</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hello_type</span>
+      <span class="nt">requirements</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-workstation</span>
+<span class="nn">...</span>
+</pre></div>
+</div>
+<p>As you can see it is has only one node type defined. This <cite>hello_type</cite> here has two linked implementations that are actually
+two TOSCA operations (create and delete) that are implemented in a form of Ansible playbooks. The Ansible playbook for
+creation is shown below and it is used to create a new folder and hello world file in <cite>/tmp</cite> directory.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create the new folder structure</span>
+      <span class="nt">file</span><span class="p">:</span>
+        <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/opera-test/hello</span>
+        <span class="nt">recurse</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">directory</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create hello.txt and add content</span>
+      <span class="nt">copy</span><span class="p">:</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/opera-test/hello/hello.txt</span>
+        <span class="nt">content</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">content</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="nn">...</span>
+</pre></div>
+</div>
+<p>And the playbook for destroying the service is below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Remove the location</span>
+      <span class="nt">file</span><span class="p">:</span>
+        <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/opera-test</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
+<span class="nn">...</span>
+</pre></div>
+</div>
+<p>You can initiate xOpera orchestration service with <code class="docutils literal notranslate"><span class="pre">opera</span> <span class="pre">deploy</span> <span class="pre">tosca-template.yml</span></code> in order to start the deployment
+and then also <code class="docutils literal notranslate"><span class="pre">opera</span> <span class="pre">undeploy</span></code> to un-deploy the solution (see image below <a class="reference internal" href="#opera-deploy-cli"><span class="std std-ref">xOpera CLI deployment</span></a>).</p>
+<div class="figure align-center" id="id2">
+<span id="opera-deploy-cli"></span><a class="reference external image-reference" href="_images/opera_deploy_cli.png"><img alt="_images/opera_deploy_cli.png" src="_images/opera_deploy_cli.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">xOpera CLI deployment</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="openstack-client-setup">
+<h2>OpenStack client setup<a class="headerlink" href="#openstack-client-setup" title="Permalink to this headline">¶</a></h2>
+<p>This subsection describes <a class="reference external" href="https://github.com/xlab-si/xopera-opera/tree/master/examples/nginx_openstack">OpenStack and Nginx example</a>.
+Because using OpenStack modules from Ansible playbooks is quite common, we can
+install <code class="docutils literal notranslate"><span class="pre">opera</span></code> with all required OpenStack libraries by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(.venv) $ pip install -U opera[openstack]
+</pre></div>
+</div>
+<p>Before we can actually use the OpenStack functionality, we also need to obtain
+the OpenStack credentials. If we log into OpenStack and navigate to the
+<code class="docutils literal notranslate"><span class="pre">Access</span> <span class="pre">&amp;</span> <span class="pre">Security</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">API</span> <span class="pre">Access</span></code> page, we can download the rc file with
+all required information.</p>
+<p>At the start of each session (e.g., when we open a new command line console),
+we must source the rc file by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venv) $ . openstack.rc
+</pre></div>
+</div>
+<p>After we enter the password, we are ready to start using the OpenStack modules
+in playbooks that implement life cycle operations.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you want to deploy on a remote VM you should use <cite>OPERA_SSH_USER</cite> env var to tell xOpera as which user you want
+to connect.</p>
+</div>
+</div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<p>Another example is for <a class="reference external" href="https://github.com/xlab-si/xopera-opera/tree/master/examples/outputs">opera outputs</a> and
+can be tested using the commands below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(.venv) $ cd examples/outputs
+(.venv) $ opera deploy service.yaml
+(.venv) $ opera outputs
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Take a closer look at more examples here: <a class="reference external" href="https://github.com/xlab-si/xopera-opera/tree/master/examples">https://github.com/xlab-si/xopera-opera/tree/master/examples</a>.
+There are also <a class="reference external" href="https://github.com/xlab-si/xopera-opera/tree/master/tests/integration">integration tests</a>
+within opera’s GitHub repository which you can also try to run.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documentation.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, RADON team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
