@@ -167,3 +167,6 @@ class Node(Base):
             raise DataError("Cannot find attribute '{}'.".format(attr))
 
         self.set_attribute(attr, value)
+
+    def get_artifact(self, params):
+        return self.template.get_artifact(params)

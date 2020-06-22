@@ -47,6 +47,7 @@ class NodeTemplate(CollectorMixin, Entity):
             attributes=self.collect_attributes(service_ast),
             requirements=self.collect_requirements(name, service_ast),
             interfaces=self.collect_interfaces(service_ast),
+            artifacts=self.collect_artifacts(service_ast),
         )
 
     # Next function is not part of the CollectorMixin, because requirements
