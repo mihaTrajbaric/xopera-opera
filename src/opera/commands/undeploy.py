@@ -22,6 +22,10 @@ def add_parser(subparsers):
             threads (positive number, default 1)",
         type=int, default=1
     )
+    parser.add_argument(
+        "--verbose", "-v", action='store_true',
+        help="Turns on verbose mode",
+    )
     parser.set_defaults(func=undeploy)
 
 
@@ -32,6 +36,7 @@ def undeploy(args):
     storage = Storage(Path(args.instance_path)) if args.instance_path else Storage(Path(".opera"))
     root = storage.read("root_file")
     inputs = storage.read_json("inputs")
+    verbose_mode = True if args.verbose else False
 
     if args.workers < 1:
         print("{0} is not a positive number!".format(args.workers))
@@ -41,7 +46,7 @@ def undeploy(args):
         ast = tosca.load(Path.cwd(), PurePath(root))
         template = ast.get_template(inputs)
         topology = template.instantiate(storage)
-        topology.undeploy(args.workers)
+        topology.undeploy(args.workers, verbose_mode)
     except ParseError as e:
         print("{}: {}".format(e.loc, e))
         return 1

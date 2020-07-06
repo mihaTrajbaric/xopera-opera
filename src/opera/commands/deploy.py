@@ -28,6 +28,10 @@ def add_parser(subparsers):
             threads (positive number, default 1)",
         type=int, default=1
     )
+    parser.add_argument(
+        "--verbose", "-v", action='store_true',
+        help="Turns on verbose mode",
+    )
     parser.add_argument("template",
                         type=argparse.FileType("r"), nargs='?',
                         help="TOSCA YAML service template file",
@@ -44,6 +48,8 @@ def deploy(args):
     if args.workers < 1:
         print("{0} is not a positive number!".format(args.workers))
         return 1
+
+    verbose_mode = True if args.verbose else False
 
     # TODO(@tadeboro): This should be part of the init command that we do not
     # have yet.
@@ -76,7 +82,7 @@ def deploy(args):
         ast = tosca.load(Path.cwd(), PurePath(service_template))
         template = ast.get_template(inputs)
         topology = template.instantiate(storage)
-        topology.deploy(args.workers)
+        topology.deploy(args.workers, verbose_mode)
     except ParseError as e:
         print("{}: {}".format(e.loc, e))
         return 1
