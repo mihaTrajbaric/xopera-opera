@@ -1,5 +1,6 @@
 import json
 import pathlib
+import shutil
 
 
 class Storage:
@@ -25,4 +26,11 @@ class Storage:
 
     def exists(self, *path):
         return (self.path / pathlib.PurePath(*path)).exists()
+
+    def remove(self, *path):
+        if self.exists(*path):
+            shutil.rmtree(self.path / pathlib.PurePath(*path))
+
+    def remove_all(self):
+        shutil.rmtree(self.path)
 

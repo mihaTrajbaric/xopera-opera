@@ -28,6 +28,14 @@ def add_parser(subparsers):
             threads (positive number, default 1)",
         type=int, default=1
     )
+    parser.add_argument(
+        "--resume", "-r", action='store_true',
+        help="Resume the deployment from where it was interrupted.",
+    )
+    parser.add_argument(
+        "--force", "-f", action='store_true',
+        help="Delete the previous instance model and start over the deployment.",
+    )
     parser.add_argument("template",
                         type=argparse.FileType("r"), nargs='?',
                         help="TOSCA YAML service template file",
@@ -36,6 +44,10 @@ def add_parser(subparsers):
 
 
 def deploy(args):
+    if args.resume and args.force:
+        print("The -r/--resume and -f/--force options cannot be used together.")
+        return 0
+
     if args.instance_path and not path.isdir(args.instance_path):
         raise argparse.ArgumentTypeError("Directory {0} is not a valid path!".format(args.instance_path))
 
@@ -44,6 +56,23 @@ def deploy(args):
     if args.workers < 1:
         print("{0} is not a positive number!".format(args.workers))
         return 1
+
+    if storage.exists("instances"):
+        if args.resume:
+            print("The resume deploy option might have unexpected consequences on the already deployed blueprint.")
+            question = prompt_yes_no_question()
+            if not question:
+                return 0
+        elif args.force:
+            print("The force deploy option might have unexpected consequences on the already deployed blueprint.")
+            question = prompt_yes_no_question()
+            if question:
+                storage.remove("instances")
+            else:
+                return 0
+        else:
+            print("The instance model already exists. To redeploy use --force option or --resume to continue.")
+            return 0
 
     if args.template:
         storage.write(args.template.name, "root_file")
@@ -83,3 +112,18 @@ def deploy(args):
         return 1
 
     return 0
+
+
+def prompt_yes_no_question():
+    check = str(input("Do you want to continue? (Y/n): ")).lower().strip()
+    try:
+        if check[:1] == "" or check[:1] == 'y' or check[:1] == "yes":
+            return True
+        elif check[:1] == 'n' or check[:1] == "no":
+            return False
+        else:
+            print('Invalid input. Please try again.')
+            return prompt_yes_no_question()
+    except Exception as e:
+        print("Exception occurred: {}. Please enter valid inputs.".format(e))
+        return prompt_yes_no_question()
