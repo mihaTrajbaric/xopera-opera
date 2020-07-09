@@ -131,7 +131,16 @@ class Node(Base):
         if attr in self.attributes:
             return self.attributes[attr].eval(self)
 
-        # TODO(@tadeboro): Add capability access.
+        # If we have no attribute, try searching for capability.
+        capabilities = tuple(
+            c for c in self.template.capabilities if c.name == attr
+        )
+        if len(capabilities) > 1:
+            self.error = DataError("More than one capability is named '{}'.".format(attr, ))
+            raise self.error
+
+        if len(capabilities) == 1 and capabilities[0].attributes and len(rest) != 0:
+            return capabilities[0].attributes.get(rest[0]).data
 
         # If we have no attribute, try searching for requirement.
         relationships = self.out_edges.get(attr, {})

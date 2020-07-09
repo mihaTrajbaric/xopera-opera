@@ -10,6 +10,7 @@ class Node:
             properties,
             attributes,
             requirements,
+            capabilities,
             interfaces,
     ):
         self.name = name
@@ -17,6 +18,7 @@ class Node:
         self.properties = properties
         self.attributes = attributes
         self.requirements = requirements
+        self.capabilities = capabilities
         self.interfaces = interfaces
 
         # This will be set when the node is inserted into a topology
@@ -89,7 +91,17 @@ class Node:
         if prop in self.properties:
             return self.properties[prop].eval(self)
 
-        # TODO(@tadeboro): Add capability access.
+        # If we have no property, try searching for capability.
+        capabilities = tuple(
+            c for c in self.capabilities if c.name == prop
+        )
+        if len(capabilities) > 1:
+            raise DataError("More than one capability is named '{}'.".format(
+                prop,
+            ))
+
+        if len(capabilities) == 1 and capabilities[0].properties:
+            return capabilities[0].properties[0].get(rest[0]).data
 
         # If we have no property, try searching for requirement.
         requirements = tuple(
